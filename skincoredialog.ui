@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>skinCoreDialog</class>
+ <widget class="QDialog" name="skinCoreDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label_degree">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请输入填充角度：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_infillSpace">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请输入填充距离：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_intervalLayer">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>125</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请输入填充路径间隔层数：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_degree">
+   <property name="geometry">
+    <rect>
+     <x>202</x>
+     <y>40</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_infillSpace">
+   <property name="geometry">
+    <rect>
+     <x>202</x>
+     <y>80</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.4</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_intervalLayer">
+   <property name="geometry">
+    <rect>
+     <x>202</x>
+     <y>122</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_confirm">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>240</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

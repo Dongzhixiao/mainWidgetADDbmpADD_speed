@@ -1,0 +1,73 @@
+﻿生成启动时间为 2015/4/19 12:13:21。
+     1>项目“C:\Users\Administrator\Desktop\mainWidget\mainWidget.vcxproj”在节点 2 上(build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: Intermediate 目录未以斜杠结尾。此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Release\mainWidget.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       CustomBuild:
+         Moc'ing glwidget.h...
+         Moc'ing linescandialog.h...
+         Moc'ing logindlg.h...
+         Moc'ing mainwindow.h...
+         Uic'ing linescandialog.ui...
+         Uic'ing logindlg.ui...
+         Uic'ing mainwindow.ui...
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\Qt\4.8.6\include\QtCore /ID:\Qt\4.8.6\include\QtGui /ID:\Qt\4.8.6\include\QtOpenGL /ID:\Qt\4.8.6\include /ID:\Qt\4.8.6\include\ActiveQt /Irelease /I. /ID:\Qt\4.8.6\mkspecs\default /I.\GeneratedFiles /Zi /nologo /W3 /WX- /O2 /Oy- /D _WINDOWS /D UNICODE /D WIN32 /D QT_DLL /D QT_NO_DEBUG /D QT_OPENGL_LIB /D QT_GUI_LIB /D QT_CORE_LIB /D QT_HAVE_MMX /D QT_HAVE_3DNOW /D QT_HAVE_SSE /D QT_HAVE_MMXEXT /D QT_HAVE_SSE2 /D QT_THREAD_SUPPORT /D NDEBUG /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /GR /Fo"Win32\Release\\" /Fd"Win32\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt generate_line.cpp glwidget.cpp glwidget5.cpp linescandialog.cpp logindlg.cpp main.cpp mainwindow.cpp qands.cpp Release\moc_mainwindow.cpp Release\moc_glwidget.cpp Release\moc_linescandialog.cpp Release\moc_logindlg.cpp -Zm200 -w34100 -w34189 
+         generate_line.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+     1>generate_line.cpp(81): warning C4018: “<”: 有符号/无符号不匹配
+     1>generate_line.cpp(178): warning C4018: “<”: 有符号/无符号不匹配
+     1>generate_line.cpp(450): warning C4305: “+=”: 从“double”到“float”截断
+     1>generate_line.cpp(455): warning C4305: “-=”: 从“double”到“float”截断
+     1>generate_line.cpp(298): warning C4189: “beforebP”: 局部变量已初始化但不引用
+     1>generate_line.cpp(565): warning C4189: “beforebP”: 局部变量已初始化但不引用
+         glwidget.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         glwidget5.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         linescandialog.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+     1>linescandialog.cpp(93): warning C4305: “参数”: 从“double”到“float”截断
+     1>linescandialog.cpp(94): warning C4305: “参数”: 从“double”到“float”截断
+     1>linescandialog.cpp(147): warning C4305: “初始化”: 从“double”到“float”截断
+     1>linescandialog.cpp(150): warning C4305: “+=”: 从“double”到“float”截断
+     1>linescandialog.cpp(165): warning C4305: “+=”: 从“double”到“float”截断
+     1>linescandialog.cpp(179): warning C4305: “+=”: 从“double”到“float”截断
+         logindlg.cpp
+         main.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         mainwindow.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         qands.cpp
+         moc_mainwindow.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         moc_glwidget.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         moc_linescandialog.cpp
+     1>c:\users\administrator\desktop\mainwidget\generate_line.h(15): warning C4305: “初始化”: 从“double”到“const float”截断
+         moc_logindlg.cpp
+         正在生成代码...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"release\\mainWidget.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\Qt\4.8.6\lib /LIBPATH:D:\Qt\4.8.6\lib glu32.lib opengl32.lib gdi32.lib user32.lib D:\Qt\4.8.6\lib\qtmain.lib D:\Qt\4.8.6\lib\QtOpenGL4.lib D:\Qt\4.8.6\lib\QtGui4.lib D:\Qt\4.8.6\lib\QtCore4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32\Release\mainWidget.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\Administrator\Desktop\mainWidget\release\mainWidget.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 Win32\Release\generate_line.obj
+         Win32\Release\glwidget.obj
+         Win32\Release\glwidget5.obj
+         Win32\Release\linescandialog.obj
+         Win32\Release\logindlg.obj
+         Win32\Release\main.obj
+         Win32\Release\mainwindow.obj
+         Win32\Release\qands.obj
+         Win32\Release\moc_mainwindow.obj
+         Win32\Release\moc_glwidget.obj
+         Win32\Release\moc_linescandialog.obj
+         Win32\Release\moc_logindlg.obj "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" 
+         mainWidget.vcxproj -> C:\Users\Administrator\Desktop\mainWidget\release\mainWidget.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"release\\mainWidget.exe;#1" /manifest Win32\Release\mainWidget.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Release\mainWidget.unsuccessfulbuild”。
+         正在对“Win32\Release\mainWidget.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“C:\Users\Administrator\Desktop\mainWidget\mainWidget.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:42.98

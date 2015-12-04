@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>838</width>
+    <height>645</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>读取slc文件并生成路径</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/xiaoDong.bmp</normaloff>:/images/xiaoDong.bmp</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>838</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_F">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_O"/>
+   </widget>
+   <widget class="QMenu" name="menu_G">
+    <property name="title">
+     <string>G代码生成(&amp;G)</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <widget class="QMenu" name="menu_D">
+    <property name="title">
+     <string>显示(&amp;D)</string>
+    </property>
+    <addaction name="action_2"/>
+   </widget>
+   <widget class="QMenu" name="menu_P">
+    <property name="title">
+     <string>图片生成(&amp;P)</string>
+    </property>
+    <addaction name="action_B"/>
+   </widget>
+   <widget class="QMenu" name="menuSkin_core">
+    <property name="title">
+     <string>skin_core算法</string>
+    </property>
+    <addaction name="action_S"/>
+   </widget>
+   <addaction name="menu_F"/>
+   <addaction name="menu_G"/>
+   <addaction name="menu_D"/>
+   <addaction name="menu_P"/>
+   <addaction name="menuSkin_core"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_O">
+   <property name="text">
+    <string>打开(&amp;O)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>直线填充</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>设置显示层数</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action_B">
+   <property name="text">
+    <string>生成位图</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="action_S">
+   <property name="text">
+    <string>直线填充</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
+ <connections/>
+</ui>
