@@ -27,11 +27,11 @@ private slots:
 
 private:
     Ui::lineScanDialog *ui;
-    std::vector<xd::outlines> theData;  //½ÓÊÕµÄslcµÄÂÖÀªÊı¾İ
-    std::vector<xd::outlines> InfilledData;  //´æ·ÅÌî³äºóµÄÊı¾İ
-    xd::outlines firstResult; //µÚÒ»²ãÊı¾İ
-    xd::outlines secondResult; //µÚ¶ş²ãÊı¾İ
-    std::vector<float> recordZ;  //¼ÇÂ¼¼ÓÈëµ××ùÇ°Ã¿Ò»²ãµÄ¸ß¶È
+    std::vector<xd::outlines> theData;  //æ¥æ”¶çš„slcçš„è½®å»“æ•°æ®
+    std::vector<xd::outlines> InfilledData;  //å­˜æ”¾å¡«å……åçš„æ•°æ®
+    xd::outlines firstResult; //ç¬¬ä¸€å±‚æ•°æ®
+    xd::outlines secondResult; //ç¬¬äºŒå±‚æ•°æ®
+    std::vector<float> recordZ;  //è®°å½•åŠ å…¥åº•åº§å‰æ¯ä¸€å±‚çš„é«˜åº¦
 signals:
     void sendInfilledData(std::vector<xd::outlines> InfilledData);
 };

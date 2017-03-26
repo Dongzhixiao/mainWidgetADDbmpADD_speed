@@ -10,7 +10,7 @@ GLWidget5::GLWidget5(int timerInterval, QWidget *parent)
     xmove=ymove=0.0f;
     contentTodraw.clear();
 	//contentTodraw.clear();
-    //setWindowTitle(tr("3D¿Õ¼ä"));
+    //setWindowTitle(tr("3Dç©ºé—´"));
     //QIcon icon(":/images/war4.png");
    // setWindowIcon(icon);
    // showMaximized();
@@ -42,17 +42,17 @@ void GLWidget5::resizeGL(int width, int height)
 
 void GLWidget5::paintGL()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Çå³ıÆÁÄ»ºÍÉî¶È»º´æ
-    glLoadIdentity(); // ÖØÖÃµ±Ç°µÄÄ£ĞÍ¹Û²ì¾ØÕó
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // æ¸…é™¤å±å¹•å’Œæ·±åº¦ç¼“å­˜
+    glLoadIdentity(); // é‡ç½®å½“å‰çš„æ¨¡å‹è§‚å¯ŸçŸ©é˜µ
 
-    glTranslatef(-1.5f,0.0f,-6.0f); // Ïà¶Ôµ±Ç°ËùÔÚµÄÆÁÄ»Î»ÖÃÒÆ¶¯
+    glTranslatef(-1.5f,0.0f,-6.0f); // ç›¸å¯¹å½“å‰æ‰€åœ¨çš„å±å¹•ä½ç½®ç§»åŠ¨
     glScalef(scaling, scaling, scaling);
     glTranslatef(xmove/scaling,ymove/scaling,0);
     glRotatef(xrot, 1.0, 0.0, 0.0);
     glRotatef(yrot, 0.0, 1.0, 0.0);
     glRotatef(zrot, 0.0, 0.0, 1.0);
 
-    glRotatef(rtri, 0.0f, 1.0f, 0.0f); // ÈÆyÖáĞı×ª½ğ×ÖËş
+    glRotatef(rtri, 0.0f, 1.0f, 0.0f); // ç»•yè½´æ—‹è½¬é‡‘å­—å¡”
 
     if(!contentTodraw.empty())
     {
@@ -133,7 +133,7 @@ void GLWidget5::wheelEvent(QWheelEvent *e)
 
 void GLWidget5::setDrawData(std::vector<xd::outlines> a)
 {
-    //std::cout<<"½øÈëÁËslot"<<endl;
+    //std::cout<<"è¿›å…¥äº†slot"<<endl;
     contentTodraw.clear();
     contentTodraw=a;
     startL=1;

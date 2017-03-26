@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    glwidget * displayF=new glwidget(this);  //½¨Á¢ÓÃÓÚÏÔÊ¾µÄ´°¿Ú
+    glwidget * displayF=new glwidget(this);  //å»ºç«‹ç”¨äºæ˜¾ç¤ºçš„çª—å£
     this->setCentralWidget(displayF);
     OutlineData.clear();
     connect(this,SIGNAL(passData(std::vector<xd::outlines>)),displayF,SLOT(setDrawData(std::vector<xd::outlines>)));
@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::on_action_O_triggered()
 {
 	
-    QString fileName = QFileDialog::getOpenFileName(this,tr("´ò¿ªÒ»¸öslcÎÄ¼ş"),tr("/ÇëÑ¡ÔñslcÎÄ¼ş"),tr("ÇĞÆ¬ÎÄ¼ş(*.slc)"));
+    QString fileName = QFileDialog::getOpenFileName(this,tr("æ‰“å¼€ä¸€ä¸ªslcæ–‡ä»¶"),tr("/è¯·é€‰æ‹©slcæ–‡ä»¶"),tr("åˆ‡ç‰‡æ–‡ä»¶(*.slc)"));
     if(fileName.length()==0)
         return;
     OutlineData.clear();
@@ -47,7 +47,7 @@ void MainWindow::on_action_O_triggered()
     readslc.open(cFileName.c_str(),std::ios::in | std::ios::binary);
         if(!readslc )
         {
-            cout << "ÎŞ·¨´ò¿ªÎÄ¼ş\n";
+            cout << "æ— æ³•æ‰“å¼€æ–‡ä»¶\n";
             cin.get();
             exit(1);
         }
@@ -58,10 +58,10 @@ void MainWindow::on_action_O_triggered()
             readslc.seekg(-2,ios::cur);
         }
         //auto a=readslc.tellg();
-        readslc.seekg(2,ios::cur);  //×ß¹ı¿ªÍ·²¿·Ö¡£
-        readslc.seekg(256,ios::cur); //×ß¹ıÎÄ¼şµÄÔ¤Áô²¿·Ö¡£
-        readslc.seekg(1+4*4,ios::cur); //×ß¹ıÌõÄ¿²¿·Ö¡£
-        //ÂÖÀªÊı¾İ¿ªÊ¼¶ÁÈ¡£¡
+        readslc.seekg(2,ios::cur);  //èµ°è¿‡å¼€å¤´éƒ¨åˆ†ã€‚
+        readslc.seekg(256,ios::cur); //èµ°è¿‡æ–‡ä»¶çš„é¢„ç•™éƒ¨åˆ†ã€‚
+        readslc.seekg(1+4*4,ios::cur); //èµ°è¿‡æ¡ç›®éƒ¨åˆ†ã€‚
+        //è½®å»“æ•°æ®å¼€å§‹è¯»å–ï¼
         char EndSign[9]={0};
         readslc.read(EndSign,8);
         readslc.seekg(-8,ios::cur);
@@ -74,7 +74,7 @@ void MainWindow::on_action_O_triggered()
         {
             float LayerZ;
             int Num;
-            readslc.read((char*)&LayerZ,4);  //ÕâÒ»²½Ïàµ±ÓĞÒâË¼£¡
+            readslc.read((char*)&LayerZ,4);  //è¿™ä¸€æ­¥ç›¸å½“æœ‰æ„æ€ï¼
             readslc.read((char*)&Num,4);
             vector<vector<xd::xdpoint> > aa;
             for (int i=1;i<=Num;i++)
@@ -98,12 +98,12 @@ void MainWindow::on_action_O_triggered()
             readslc.read(EndSign,8);
             readslc.seekg(-8,ios::cur);
             recordZ.push_back(LayerZ);
-            //cout<<"¶ÁÈ¡ÁËÒ»²ã"<<endl<<"µ±Ç°ÎÄ¼şÖ¸ÕëÎ»ÖÃÎª: "<<readslc.tellg()<<endl;
+            //cout<<"è¯»å–äº†ä¸€å±‚"<<endl<<"å½“å‰æ–‡ä»¶æŒ‡é’ˆä½ç½®ä¸º: "<<readslc.tellg()<<endl;
         }
-        //cout<<"ÎÄ¼ş¶ÁÈ¡Íê±Ï£¡"<<endl;
-        //cout<<"Ò»¹²ÓĞ"<<OutlineData.size()<<"²ã£¡"<<endl;
+        //cout<<"æ–‡ä»¶è¯»å–å®Œæ¯•ï¼"<<endl;
+        //cout<<"ä¸€å…±æœ‰"<<OutlineData.size()<<"å±‚ï¼"<<endl;
 
-        //Ç°´¦ÀíÂÖÀªÏß£¬ÒòÎªÓĞĞ©ÂÖÀªÏßÔÚxÖáÉÏÒ»´Î³öÏÖºÃ¶à¸öµã£¬½«Ó°ÏìºóĞøÅĞ¶Ï£¬½«Í¬Ò»ÌõÆ½ĞĞÏßÉÏÖ»±£ÁôÒ»¸öµã¡£
+        //å‰å¤„ç†è½®å»“çº¿ï¼Œå› ä¸ºæœ‰äº›è½®å»“çº¿åœ¨xè½´ä¸Šä¸€æ¬¡å‡ºç°å¥½å¤šä¸ªç‚¹ï¼Œå°†å½±å“åç»­åˆ¤æ–­ï¼Œå°†åŒä¸€æ¡å¹³è¡Œçº¿ä¸Šåªä¿ç•™ä¸€ä¸ªç‚¹ã€‚
         for (int k=0;k!=OutlineData.size();++k)
         {
             for(int i=0;i!=OutlineData[k].size();i++)
@@ -116,7 +116,7 @@ void MainWindow::on_action_O_triggered()
                }
            }
         }
-        //ÒòÎªÉ¾³ı¿ÉÄÜ»á°Ñ×îºóÒ»¸öµã»òÕßµÚÒ»¸öµãÉ¾µôÒ»¸ö£¬ÎªÁËÂú×ãÒ»Ñù£¬±ØĞëÔÙ¼ÓÉÏ£¡
+        //å› ä¸ºåˆ é™¤å¯èƒ½ä¼šæŠŠæœ€åä¸€ä¸ªç‚¹æˆ–è€…ç¬¬ä¸€ä¸ªç‚¹åˆ æ‰ä¸€ä¸ªï¼Œä¸ºäº†æ»¡è¶³ä¸€æ ·ï¼Œå¿…é¡»å†åŠ ä¸Šï¼
         for (int k=0;k!=OutlineData.size();++k)
         {
             for (int i=0;i!=OutlineData[k].size();i++)
@@ -143,7 +143,7 @@ void MainWindow::on_action_triggered()
 {
     if(OutlineData.empty())
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÏÈ¶ÁÈëslcÎÄ¼ş"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·å…ˆè¯»å…¥slcæ–‡ä»¶"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
     lineScanDialog *LSD=new lineScanDialog;
@@ -159,14 +159,14 @@ void MainWindow::on_action_triggered()
 void MainWindow::getInfilledData(std::vector<xd::outlines> a)
 {
     InfillData=a;
-    emit passInfillData(InfillData);  //·¢ËÍÌî³äºóÊı¾İ¸øopenglÄ£¿é
+    emit passInfillData(InfillData);  //å‘é€å¡«å……åæ•°æ®ç»™openglæ¨¡å—
 }
 
 void MainWindow::on_action_2_triggered()
 {
     if(OutlineData.empty())
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÏÈ¶ÁÈëslcÎÄ¼ş"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·å…ˆè¯»å…¥slcæ–‡ä»¶"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
     displayLayerDialog *SL=new displayLayerDialog;
@@ -185,7 +185,7 @@ void MainWindow::on_action_B_triggered()
 {
     if(OutlineData.empty())
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÏÈ¶ÁÈëslcÎÄ¼ş"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·å…ˆè¯»å…¥slcæ–‡ä»¶"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
     bmpDialog *BMPD=new bmpDialog;
@@ -202,7 +202,7 @@ void MainWindow::on_action_S_triggered()
 {
     if(OutlineData.empty())
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÏÈ¶ÁÈëslcÎÄ¼ş"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·å…ˆè¯»å…¥slcæ–‡ä»¶"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
     skinCoreDialog *SCD=new skinCoreDialog;

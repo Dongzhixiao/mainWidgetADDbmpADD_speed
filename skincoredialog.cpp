@@ -6,13 +6,13 @@ skinCoreDialog::skinCoreDialog(QWidget *parent) :
     ui(new Ui::skinCoreDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle(tr("Ö±ÏßÌî³ä"));
+    this->setWindowTitle(tr("ç›´çº¿å¡«å……"));
 
-    QRegExp rx("^((180|\\d?\\d|1[1-7]\\d)(\\.\\d{1,2})?)$");   //ÕýÔò±í´ïÊ½:0~180,¿ÉÒÔÁ½Î»Ð¡Êý
+    QRegExp rx("^((180|\\d?\\d|1[1-7]\\d)(\\.\\d{1,2})?)$");   //æ­£åˆ™è¡¨è¾¾å¼:0~180,å¯ä»¥ä¸¤ä½å°æ•°
     QRegExpValidator *pReg = new QRegExpValidator(rx, this);
     ui->lineEdit_degree->setValidator(pReg);
 
-    QRegExp rx2("^(5|[1-4](\\.\\d{1,2})?|0\\.[1-9]\\d?|0\\.0[1-9])$");  //ÕýÔò±í´ïÊ½:0~180,¿ÉÒÔÁ½Î»Ð¡Êý
+    QRegExp rx2("^(5|[1-4](\\.\\d{1,2})?|0\\.[1-9]\\d?|0\\.0[1-9])$");  //æ­£åˆ™è¡¨è¾¾å¼:0~180,å¯ä»¥ä¸¤ä½å°æ•°
     QRegExpValidator *pReg2 = new QRegExpValidator(rx2, this);
     ui->lineEdit_infillSpace->setValidator(pReg2);
 

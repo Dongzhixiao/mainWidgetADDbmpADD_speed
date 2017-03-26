@@ -18,7 +18,7 @@ public:
     
 private:
     Ui::bmpDialog *ui;
-    std::vector<xd::outlines> theData;  //½ÓÊÕµÄslcµÄÂÖÀªÊı¾İ
+    std::vector<xd::outlines> theData;  //æ¥æ”¶çš„slcçš„è½®å»“æ•°æ®
     int Layer;
 private slots:
     void outlineData(std::vector<xd::outlines> a);

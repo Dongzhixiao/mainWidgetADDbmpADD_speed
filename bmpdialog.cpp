@@ -14,12 +14,12 @@ bmpDialog::bmpDialog(QWidget *parent) :
     ui(new Ui::bmpDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle(tr("Î»Í¼Éú³É"));
+    this->setWindowTitle(tr("ä½å›¾ç”Ÿæˆ"));
     theData.clear();
     ui->lineEdit_mm->setText(tr("150"));
     ui->lineEdit_pixel->setText(tr("512"));
 
-    QRegExp rx("^(\\d{1,4})$");   //ÕıÔò±í´ïÊ½:¿ÉÒÔÊäÈë4Î»ÕûÊı
+    QRegExp rx("^(\\d{1,4})$");   //æ­£åˆ™è¡¨è¾¾å¼:å¯ä»¥è¾“å…¥4ä½æ•´æ•°
     QRegExpValidator *pReg = new QRegExpValidator(rx, this);
     ui->lineEdit_mm->setValidator(pReg);
     ui->lineEdit_pixel->setValidator(pReg);
@@ -53,18 +53,18 @@ void bmpDialog::on_pushButton_save_clicked()
     int pixel=ui->lineEdit_pixel->text().toInt(&OK2);
     if(!(OK1&&OK2&&(mm>=10)&&(pixel>=64)&&(pixel%4==0)))
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÊäÈëºÏ·¨Êı×Ö£º¹¤×÷Ì¨³ß´ç>=10mm£¡ÏñËØ>=64ÇÒÊÇ4µÄ±¶Êı"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·è¾“å…¥åˆæ³•æ•°å­—ï¼šå·¥ä½œå°å°ºå¯¸>=10mmï¼åƒç´ >=64ä¸”æ˜¯4çš„å€æ•°"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
-    //¿ªÊ¼±£´æ
+    //å¼€å§‹ä¿å­˜
 
     ui->progressBar->setMaximum(Layer+Layer);
     ui->progressBar->setMinimum(0);
 
-    QDateTime time = QDateTime::currentDateTime();//»ñÈ¡ÏµÍ³ÏÖÔÚµÄÊ±¼ä
+    QDateTime time = QDateTime::currentDateTime();//è·å–ç³»ç»Ÿç°åœ¨çš„æ—¶é—´
 
-    QString str = time.toString(tr("hhÊ±mm·Ö")); //ÉèÖÃÏÔÊ¾¸ñÊ½
-    QString fileName = QFileDialog::getSaveFileName(this,tr("±£´æÎÄ¼ş"),str,tr("bmpÎÄ¼ş(*.bmp)"));
+    QString str = time.toString(tr("hhæ—¶mmåˆ†")); //è®¾ç½®æ˜¾ç¤ºæ ¼å¼
+    QString fileName = QFileDialog::getSaveFileName(this,tr("ä¿å­˜æ–‡ä»¶"),str,tr("bmpæ–‡ä»¶(*.bmp)"));
     if(fileName.length()==0)
         return;
 
@@ -117,7 +117,7 @@ void bmpDialog::on_pushButton_save_clicked()
             outfile.write((char *)&pixelArrayCompression,4);
             int bitmapDataSize=PIXEL*PIXEL;
             outfile.write((char *)&bitmapDataSize,4);
-            int printResolution=(float)PIXEL/mm*1000;   //·Ö±æÂÊÎÊÌâÔÚ´Ë´¦½â¾ö£¡
+            int printResolution=(float)PIXEL/mm*1000;   //åˆ†è¾¨ç‡é—®é¢˜åœ¨æ­¤å¤„è§£å†³ï¼
             //int printResolution=100;
             outfile.write((char *)&printResolution,4);
             outfile.write((char *)&printResolution,4);

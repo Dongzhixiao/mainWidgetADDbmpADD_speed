@@ -1,5 +1,5 @@
-//ÍõÏş¶« 2014/1/20 ±àÖÆÉú³ÉÖ±ÏßÉ¨ÃèÏßµÄÍ·ÎÄ¼ş£¬Îª·ÀÖ¹ÃüÃû³åÍ»£¬·ÅÔÚÃüÃû¿Õ¼äxdÀïÃæ¡£
-//ÍõÏş¶« 2015/4/7  Ôö¼ÓÁËÖ±ÏßÉ¨ÃèÔÚÇ°ºóÁ½ÌõÖ±Ïß¿çÔ½¼«ÖµµãÊ±µÄ·ÖÇøËã·¨£¬·ñÔòFDM¼Ó¹¤³ÉĞÍ¼ş¿ÉÄÜ»á³öÏÖÎÊÌâ¡£
+//ç‹æ™“ä¸œ 2014/1/20 ç¼–åˆ¶ç”Ÿæˆç›´çº¿æ‰«æçº¿çš„å¤´æ–‡ä»¶ï¼Œä¸ºé˜²æ­¢å‘½åå†²çªï¼Œæ”¾åœ¨å‘½åç©ºé—´xdé‡Œé¢ã€‚
+//ç‹æ™“ä¸œ 2015/4/7  å¢åŠ äº†ç›´çº¿æ‰«æåœ¨å‰åä¸¤æ¡ç›´çº¿è·¨è¶Šæå€¼ç‚¹æ—¶çš„åˆ†åŒºç®—æ³•ï¼Œå¦åˆ™FDMåŠ å·¥æˆå‹ä»¶å¯èƒ½ä¼šå‡ºç°é—®é¢˜ã€‚
 #ifndef GENERATE_LINE
 #define GENERATE_LINE
 
@@ -13,16 +13,16 @@
 namespace xd
 {
 	float const pi = 3.141592653589793;
-    float degrees(float fudu); //·ù¶È×ª»¯Îª½Ç¶ÈµÄº¯Êı
-    float radians(float jiaodu); //½Ç¶È×ª»»Îª·ù¶ÈµÄº¯Êı
-	class xdpoint   //»ù±¾µãÀà£¬°üº¬Æ½ÃæÄÚ¼«×ø±êºÍµÑ¿¨¶û×ø±êÏµµÄ×ª»»
+    float degrees(float fudu); //å¹…åº¦è½¬åŒ–ä¸ºè§’åº¦çš„å‡½æ•°
+    float radians(float jiaodu); //è§’åº¦è½¬æ¢ä¸ºå¹…åº¦çš„å‡½æ•°
+	class xdpoint   //åŸºæœ¬ç‚¹ç±»ï¼ŒåŒ…å«å¹³é¢å†…æåæ ‡å’Œç¬›å¡å°”åæ ‡ç³»çš„è½¬æ¢
 	{
 	public:
 		float x;
 		float y;
 		float z;
 		xdpoint():x(0),y(0),z(0){}
-		xdpoint(float a,float b):x(a),y(b),z(0){}  //ÕâÀïµÄÖØÔØº¯ÊızÄ¬ÈÏÎª0£¬ÒÔºó¿ÉÒÔ¸Ä½ø
+		xdpoint(float a,float b):x(a),y(b),z(0){}  //è¿™é‡Œçš„é‡è½½å‡½æ•°zé»˜è®¤ä¸º0ï¼Œä»¥åå¯ä»¥æ”¹è¿›
 		xdpoint(float a, float b,float c):x(a),y(b),z(c){}
 		float modulus() const;
 		float argument() const;
@@ -34,24 +34,24 @@ namespace xd
 	typedef std::vector<xdpoint> outline;
 	typedef std::vector<outline> outlines;
 
-    bool IsContainPoint(std::vector<std::pair<float,float> > &a, xdpoint b);  //ÅĞ¶Á¼«ÖµµãÁĞ±íÀïÊÇ·ñ°üº¬Ä³Ò»¸öµãµÄº¯Êı¡£
+    bool IsContainPoint(std::vector<std::pair<float,float> > &a, xdpoint b);  //åˆ¤è¯»æå€¼ç‚¹åˆ—è¡¨é‡Œæ˜¯å¦åŒ…å«æŸä¸€ä¸ªç‚¹çš„å‡½æ•°ã€‚
 
 
-    int IsLeft(xdpoint p1,xdpoint p2, xdpoint p); //ÅĞ¶ÏpµãÊÇ·ñÔÚÓĞÏòÏß¶Îp1,p2×ó²àµÄº¯Êı¡£
+    int IsLeft(xdpoint p1,xdpoint p2, xdpoint p); //åˆ¤æ–­pç‚¹æ˜¯å¦åœ¨æœ‰å‘çº¿æ®µp1,p2å·¦ä¾§çš„å‡½æ•°ã€‚
 
-    bool IsEmpty(std::vector<std::pair<float,std::list<float> > > tem,int & firstV);  //ÅĞ¶ÏÉ¨ÃèÏßÖĞµÄÔªËØÊÇ·ñÈ«²¿È¡ÍêµÄº¯Êı¡£
-
-
-    void DeleteOddDate(std::vector<std::pair<float,std::list<float> > > & tem);   //½«´æ·ÅÆæÊıµãÊı¾İµÄÉ¨ÃèÏßÉ¾³ıµÄº¯Êı£¬Õı³£Çé¿öÏÂÓÃ²»×Å´Ëº¯Êı¡£
+    bool IsEmpty(std::vector<std::pair<float,std::list<float> > > tem,int & firstV);  //åˆ¤æ–­æ‰«æçº¿ä¸­çš„å…ƒç´ æ˜¯å¦å…¨éƒ¨å–å®Œçš„å‡½æ•°ã€‚
 
 
-    bool IsDealFinish(std::vector<xdpoint> l,int & i);  //ÅĞ¶ÏÆ½ĞĞÓÚxÖáµÄÖ±ÏßÉÏÊÇ·ñÓĞ¶àÓÚÁ½¸öµãµÄº¯Êı¡£
+    void DeleteOddDate(std::vector<std::pair<float,std::list<float> > > & tem);   //å°†å­˜æ”¾å¥‡æ•°ç‚¹æ•°æ®çš„æ‰«æçº¿åˆ é™¤çš„å‡½æ•°ï¼Œæ­£å¸¸æƒ…å†µä¸‹ç”¨ä¸ç€æ­¤å‡½æ•°ã€‚
 
 
-    bool exceedExtremum(float bijiaoY1,float bijiaoY2,std::list<float> maxY,std::list<float> minY);  //ÓÃÀ´ÅĞ¶ÏÇ°ºóÁ½ÌõÖ±ÏßÊÇ·ñÔ½¹ıÁË¾Ö²¿¼«ÖµµãµÄº¯Êı
+    bool IsDealFinish(std::vector<xdpoint> l,int & i);  //åˆ¤æ–­å¹³è¡Œäºxè½´çš„ç›´çº¿ä¸Šæ˜¯å¦æœ‰å¤šäºä¸¤ä¸ªç‚¹çš„å‡½æ•°ã€‚
 
 
-    class CTwoDimensionVector //¹¹Ôìµ¥Î»Ê¸Á¿Àà£¬°üº¬Ê¸Á¿µÄ²æ³ËºÍµã³Ë¡£
+    bool exceedExtremum(float bijiaoY1,float bijiaoY2,std::list<float> maxY,std::list<float> minY);  //ç”¨æ¥åˆ¤æ–­å‰åä¸¤æ¡ç›´çº¿æ˜¯å¦è¶Šè¿‡äº†å±€éƒ¨æå€¼ç‚¹çš„å‡½æ•°
+
+
+    class CTwoDimensionVector //æ„é€ å•ä½çŸ¢é‡ç±»ï¼ŒåŒ…å«çŸ¢é‡çš„å‰ä¹˜å’Œç‚¹ä¹˜ã€‚
 	{
 	public: 
 		float x;
@@ -72,15 +72,15 @@ namespace xd
 		}
 	};
 
-    void DealCompensate(outline DealData,outline & ResultData,float R); //´¦ÀíÂÖÀªµãÊı¾İ£¬Ê¹Æä±äÎªÓĞ²¹³¥°ë¾¶µÄÂÖÀªµãÊı¾İ¡£ ÈÚÈëµ½×Ô¼ººóÆÚ³ÌĞòÖĞ£¬2015/3/10 ¿ÉÄÜÓĞ´í
+    void DealCompensate(outline DealData,outline & ResultData,float R); //å¤„ç†è½®å»“ç‚¹æ•°æ®ï¼Œä½¿å…¶å˜ä¸ºæœ‰è¡¥å¿åŠå¾„çš„è½®å»“ç‚¹æ•°æ®ã€‚ èå…¥åˆ°è‡ªå·±åæœŸç¨‹åºä¸­ï¼Œ2015/3/10 å¯èƒ½æœ‰é”™
 
-    void InfillLine(outlines TheOutline,outlines & TheResult,float width,float degree,int lunkuo ); //×Ô¼º±àĞ´µÄÌî³äÏßÉú³Éº¯Êı¡£
+    void InfillLine(outlines TheOutline,outlines & TheResult,float width,float degree,int lunkuo ); //è‡ªå·±ç¼–å†™çš„å¡«å……çº¿ç”Ÿæˆå‡½æ•°ã€‚
 	
-    void InfillLineIn(outlines TheOutline,outlines & TheResult,float width,float degree ); //×Ô¼º±àĞ´µÄÌî³äÏßÉú³Éº¯Êı¡£
+    void InfillLineIn(outlines TheOutline,outlines & TheResult,float width,float degree ); //è‡ªå·±ç¼–å†™çš„å¡«å……çº¿ç”Ÿæˆå‡½æ•°ã€‚
 
     void InfillBMP(outlines TheOutline,std::vector<std::vector<int> > & ResultData,int piex ,int size);
 
-    void PickUpLayer(std::vector<xd::outlines> theOutline,std::vector<int> & theResult);    //ÌôÑ¡³öÍ»±ä½ØÃæµÄº¯Êı
+    void PickUpLayer(std::vector<xd::outlines> theOutline,std::vector<int> & theResult);    //æŒ‘é€‰å‡ºçªå˜æˆªé¢çš„å‡½æ•°
 
     bool isSingleInfill(int layerNumber,std::vector<int> needInfillLayer);
 

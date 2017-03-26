@@ -1,7 +1,7 @@
-//ÍõÏþ¶« 2015/4/18
-//½ñÌìµÃµ½µÄ¾­Ñé£º1. qt±à³ÌslotºÍsignal±ØÐëÓÐQ_OBJECTºê£¬·ñÔò¾ÍËã¶¨Òå²Ûº¯ÊýÒ²²»»áÊ¶±ð£¡£¡Èç¹û¼Ì³ÐµÄÀà²»ÄÜÓÐÕâ¸öºêÇÒÒªÊ¹ÓÃslot»òsignal£¬¿ÉÔÚ
-//¸¸ÀàÖÐÐ´Ò»¸öÐéslot»òsignal£¬È»ºó×ÓÀàÖØÐ´¼´¿É¡£  2.´°¿ÚµÄ×Ó²¿¼þÖ®¼äslotºÍsignal²»ÄÜ´«µÝ£¬ÒòÎªÒ»´«µÝ´ò¿ª×Ó²¿¼þ¾Í»áËÀ»ú£¡ÕâÊ±¿ÉÒÔ²ÉÓÃ×Ó²¿¼þºÍ
-//´°¿ÚÁ¬½Ó£¬´°¿ÚÔÙ´«µÝ¸øÁíÒ»¸ö×Ó²¿¼þµÄ·½Ê½½øÐÐ¼ä½ÓÁ¬½Ó£¬ÕâÑù¾Í²»»áËÀ»úÁË£¡Ô­Òò²»Ã÷°¡£¡£¡£¡£¿£¿£¿£¿
+//çŽ‹æ™“ä¸œ 2015/4/18
+//ä»Šå¤©å¾—åˆ°çš„ç»éªŒï¼š1. qtç¼–ç¨‹slotå’Œsignalå¿…é¡»æœ‰Q_OBJECTå®ï¼Œå¦åˆ™å°±ç®—å®šä¹‰æ§½å‡½æ•°ä¹Ÿä¸ä¼šè¯†åˆ«ï¼ï¼å¦‚æžœç»§æ‰¿çš„ç±»ä¸èƒ½æœ‰è¿™ä¸ªå®ä¸”è¦ä½¿ç”¨slotæˆ–signalï¼Œå¯åœ¨
+//çˆ¶ç±»ä¸­å†™ä¸€ä¸ªè™šslotæˆ–signalï¼Œç„¶åŽå­ç±»é‡å†™å³å¯ã€‚  2.çª—å£çš„å­éƒ¨ä»¶ä¹‹é—´slotå’Œsignalä¸èƒ½ä¼ é€’ï¼Œå› ä¸ºä¸€ä¼ é€’æ‰“å¼€å­éƒ¨ä»¶å°±ä¼šæ­»æœºï¼è¿™æ—¶å¯ä»¥é‡‡ç”¨å­éƒ¨ä»¶å’Œ
+//çª—å£è¿žæŽ¥ï¼Œçª—å£å†ä¼ é€’ç»™å¦ä¸€ä¸ªå­éƒ¨ä»¶çš„æ–¹å¼è¿›è¡Œé—´æŽ¥è¿žæŽ¥ï¼Œè¿™æ ·å°±ä¸ä¼šæ­»æœºäº†ï¼åŽŸå› ä¸æ˜Žå•Šï¼ï¼ï¼ï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 
 #include <QApplication>
 #include "mainwindow.h"
@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //QTextCodec::setCodecForTr(QTextCodec::codecForLocale());  ÒÔÇ°ÊÇÏÔÊ¾ÖÐÎÄ£¬ÏÖÔÚ²»ÐÐÁË£¡
+    //QTextCodec::setCodecForTr(QTextCodec::codecForLocale());  ä»¥å‰æ˜¯æ˜¾ç¤ºä¸­æ–‡ï¼ŒçŽ°åœ¨ä¸è¡Œäº†ï¼
 //    Widget w;
 //    loginDlg login;
 //        if(login.exec()==QDialog::Accepted)

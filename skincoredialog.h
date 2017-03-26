@@ -18,8 +18,8 @@ public:
     
 private:
     Ui::skinCoreDialog *ui;
-    std::vector<xd::outlines> theData;  //½ÓÊÕµÄslcµÄÂÖÀªÊı¾İ
-    std::vector<xd::outlines> InfilledData;  //´æ·ÅÌî³äºóµÄÊı¾İ
+    std::vector<xd::outlines> theData;  //æ¥æ”¶çš„slcçš„è½®å»“æ•°æ®
+    std::vector<xd::outlines> InfilledData;  //å­˜æ”¾å¡«å……åçš„æ•°æ®
 
 private slots:
     void outlineData(std::vector<xd::outlines> a);

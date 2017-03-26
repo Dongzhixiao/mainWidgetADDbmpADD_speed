@@ -7,7 +7,7 @@ displayLayerDialog::displayLayerDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::WindowStaysOnTopHint|Qt::MSWindowsFixedSizeDialogHint);
-    this->setWindowTitle(tr("ÏÔÊ¾"));
+    this->setWindowTitle(tr("æ˜¾ç¤º"));
     ui->spinBox->setMinimum(1);
     ui->spinBox_2->setMinimum(1);
     connect(ui->spinBox,SIGNAL(valueChanged(int)),this,SLOT(lowChange(int)));
@@ -25,10 +25,10 @@ void displayLayerDialog::getLayer(int a)
     ui->label->adjustSize();
     ui->label->setWordWrap(true);
     ui->label->setAlignment(Qt::AlignTop);
-    ui->label->setGeometry(QRect(5, 5, 160, 27*4));  //ËÄ±¶ÐÐ¾à
-    QString qian=tr("Ò»¹²ÓÐ");
+    ui->label->setGeometry(QRect(5, 5, 160, 27*4));  //å››å€è¡Œè·
+    QString qian=tr("ä¸€å…±æœ‰");
             qian+=QString::number(Layer, 10);;
-            qian+=tr("²ã£¬ÇëÊäÈëÒªÏÔÊ¾²ãµÄ¿ªÊ¼²ãÊýºÍ½áÊø²ãÊý:");
+            qian+=tr("å±‚ï¼Œè¯·è¾“å…¥è¦æ˜¾ç¤ºå±‚çš„å¼€å§‹å±‚æ•°å’Œç»“æŸå±‚æ•°:");
             ui->label->setText(qian);
             ui->spinBox->setMaximum(Layer);
             ui->spinBox_2->setMaximum(Layer);

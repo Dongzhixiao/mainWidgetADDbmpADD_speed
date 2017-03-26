@@ -19,11 +19,11 @@ loginDlg::~loginDlg()
 void loginDlg::on_loginBtn_clicked()
 {
     if(ui->usrLineEdit->text()==tr("qt")&&ui->pwdLineEdit->text()==tr("123456"))
-    //ÅĞ¶ÏÓÃ»§ÃûºÍÃÜÂëÊÇ·ñÕıÈ·
+    //åˆ¤æ–­ç”¨æˆ·åå’Œå¯†ç æ˜¯å¦æ­£ç¡®
     accept();
     else{
     QMessageBox::warning(this,tr("Warning"),tr("user name or password error!"),QMessageBox::Yes);
-    //Èç¹û²»ÕıÈ·£¬µ¯³ö¾¯¸æ¶Ô»°¿ò
+    //å¦‚æœä¸æ­£ç¡®ï¼Œå¼¹å‡ºè­¦å‘Šå¯¹è¯æ¡†
     }
 
 }

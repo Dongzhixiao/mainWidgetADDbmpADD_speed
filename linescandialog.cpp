@@ -13,19 +13,19 @@ lineScanDialog::lineScanDialog(QWidget *parent) :
     ui(new Ui::lineScanDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle(tr("Ö±ÏßÌî³ä"));
+    this->setWindowTitle(tr("ç›´çº¿å¡«å……"));
     theData.clear();
     ui->pushButton_save->setEnabled(FALSE);
 
-    QRegExp rx("^((180|\\d?\\d|1[1-7]\\d)(\\.\\d{1,2})?)$");   //ÕıÔò±í´ïÊ½:0~180,¿ÉÒÔÁ½Î»Ğ¡Êı
+    QRegExp rx("^((180|\\d?\\d|1[1-7]\\d)(\\.\\d{1,2})?)$");   //æ­£åˆ™è¡¨è¾¾å¼:0~180,å¯ä»¥ä¸¤ä½å°æ•°
     QRegExpValidator *pReg = new QRegExpValidator(rx, this);
     ui->lineEdit->setValidator(pReg);
 
-    QRegExp rx2("^(5|[1-4](\\.\\d{1,2})?|0\\.[1-9]\\d?|0\\.0[1-9])$");  //ÕıÔò±í´ïÊ½:0~180,¿ÉÒÔÁ½Î»Ğ¡Êı
+    QRegExp rx2("^(5|[1-4](\\.\\d{1,2})?|0\\.[1-9]\\d?|0\\.0[1-9])$");  //æ­£åˆ™è¡¨è¾¾å¼:0~180,å¯ä»¥ä¸¤ä½å°æ•°
     QRegExpValidator *pReg2 = new QRegExpValidator(rx2, this);
     ui->lineEdit_2->setValidator(pReg2);
 
-    QRegExp rx3("^(\\d{1,4})$");   //ÕıÔò±í´ïÊ½:¿ÉÒÔÊäÈë4Î»ÕûÊı
+    QRegExp rx3("^(\\d{1,4})$");   //æ­£åˆ™è¡¨è¾¾å¼:å¯ä»¥è¾“å…¥4ä½æ•´æ•°
     QRegExpValidator *pReg3 = new QRegExpValidator(rx3, this);
     ui->lineEdit_infillSpeed->setValidator(pReg3);
     ui->lineEdit_outlineSpeed->setValidator(pReg3);
@@ -58,7 +58,7 @@ void lineScanDialog::on_pushButton_confirm_clicked()
      int offsetNumber=ui->lineEdit_offsetNumber->text().toInt();
      if(!(degree>=0&&degree<=180&&lineWidth>0&&lineWidth<=5))
      {
-         QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÊäÈëºÏ·¨Êı×Ö£º½Ç¶È[0,180]ÇÒÏß¿í(0,5]£¡"), QMessageBox::Yes, QMessageBox::Yes);
+         QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·è¾“å…¥åˆæ³•æ•°å­—ï¼šè§’åº¦[0,180]ä¸”çº¿å®½(0,5]ï¼"), QMessageBox::Yes, QMessageBox::Yes);
          return;
      }
 //     else
@@ -75,7 +75,7 @@ void lineScanDialog::on_pushButton_confirm_clicked()
      ui->progressBar->show();
      for(int i=0;i!=theData.size();++i)
          recordZ.push_back(theData[i][0][0].z);
-    //ÎªÁËFDM´òÓ¡£¬±ØĞë¼ÓÔØÒ»²ãµ××ù£¡·ñÔòºÜÈİÒ×¶Â×¡ÅçÍ·£¬¶øÇÒÁã¼ş²»ÈİÒ×È¡ÏÂÀ´
+    //ä¸ºäº†FDMæ‰“å°ï¼Œå¿…é¡»åŠ è½½ä¸€å±‚åº•åº§ï¼å¦åˆ™å¾ˆå®¹æ˜“å µä½å–·å¤´ï¼Œè€Œä¸”é›¶ä»¶ä¸å®¹æ˜“å–ä¸‹æ¥
     xd::xdpoint limitPositionA(theData[0][0][0].x,theData[0][0][0].y),limitPositionB(theData[0][0][0].x,theData[0][0][0].y);
     for (int i=0;i!=theData[0].size();++i)
     {
@@ -99,8 +99,8 @@ void lineScanDialog::on_pushButton_confirm_clicked()
             }
         }
     }
-    limitPositionA.x+=4;	limitPositionA.y+=4;   //±È×î´óÎ»ÖÃ¶à4
-    limitPositionB.x-=4;	limitPositionB.y-=4;   //±È×îĞ¡Î»ÖÃĞ¡4
+    limitPositionA.x+=4;	limitPositionA.y+=4;   //æ¯”æœ€å¤§ä½ç½®å¤š4
+    limitPositionB.x-=4;	limitPositionB.y-=4;   //æ¯”æœ€å°ä½ç½®å°4
     xd::outline totalProfile;
     xd::outlines totalProfiles;
     firstResult.clear();
@@ -109,12 +109,12 @@ void lineScanDialog::on_pushButton_confirm_clicked()
     totalProfile.push_back(xd::xdpoint(limitPositionA.x,limitPositionB.y));
     totalProfile.push_back(xd::xdpoint(limitPositionB.x,limitPositionB.y));
     totalProfile.push_back(xd::xdpoint(limitPositionB.x,limitPositionA.y));
-    totalProfile.push_back(xd::xdpoint(limitPositionA.x,limitPositionA.y));  //¼ÇµÃ¼ÓÉÏ³õÊ¼µã
+    totalProfile.push_back(xd::xdpoint(limitPositionA.x,limitPositionA.y));  //è®°å¾—åŠ ä¸Šåˆå§‹ç‚¹
     totalProfiles.push_back(totalProfile);
-    xd::InfillLine(totalProfiles,firstResult,1.8,0,0);                    //µ×²ã¼ä¾à1.8
+    xd::InfillLine(totalProfiles,firstResult,1.8,0,0);                    //åº•å±‚é—´è·1.8
     xd::InfillLine(totalProfiles,secondResult,1.8,90,0);
 
-    //ÆÕÍ¨Ö±ÏßÉ¨ÃèÏßÉú³É£º
+    //æ™®é€šç›´çº¿æ‰«æçº¿ç”Ÿæˆï¼š
     for (int i=0;i!=theData.size();i++)
     {
         std::vector<xd::outline> aa;
@@ -158,15 +158,15 @@ void lineScanDialog::on_pushButton_save_clicked()
     float infillSpeed=ui->lineEdit_infillSpeed->text().toFloat();
     if(!(deltaE>0&&deltaE<99))
     {
-        QMessageBox::warning(this,tr("¾¯¸æ"),tr("ÇëÊäÈëºÏ·¨Êı×Ö£ºEµÄ±ä»¯Á¿(0,99)£¡"), QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(this,tr("è­¦å‘Š"),tr("è¯·è¾“å…¥åˆæ³•æ•°å­—ï¼šEçš„å˜åŒ–é‡(0,99)ï¼"), QMessageBox::Yes, QMessageBox::Yes);
         return;
     }
 
-    QDateTime time = QDateTime::currentDateTime();//»ñÈ¡ÏµÍ³ÏÖÔÚµÄÊ±¼ä
+    QDateTime time = QDateTime::currentDateTime();//è·å–ç³»ç»Ÿç°åœ¨çš„æ—¶é—´
 
-    QString str = time.toString(tr("yyyyÄêMMÔÂddÈÕhhÊ±mm·ÖssÃë_ddd")); //ÉèÖÃÏÔÊ¾¸ñÊ½
+    QString str = time.toString(tr("yyyyå¹´MMæœˆddæ—¥hhæ—¶mmåˆ†ssç§’_ddd")); //è®¾ç½®æ˜¾ç¤ºæ ¼å¼
 
-    QString fileName = QFileDialog::getSaveFileName(this,tr("±£´æÎÄ¼ş"),str,tr("FDMÎÄ¼ş(*.gcode)"));
+    QString fileName = QFileDialog::getSaveFileName(this,tr("ä¿å­˜æ–‡ä»¶"),str,tr("FDMæ–‡ä»¶(*.gcode)"));
     if(fileName.length()==0)
         return;
     //std::string cFileName=q2s(fileName);
@@ -178,26 +178,26 @@ void lineScanDialog::on_pushButton_save_clicked()
     outfile. setRealNumberNotation(QTextStream::FixedNotation);
     outfile. setRealNumberPrecision(3);
 
-    /*ÓÒÅçÍ·
+    /*å³å–·å¤´
     outfile<<"M103"<<endl<<"M73 P0"<<endl<<"G21"<<endl<<"G90"<<endl<<"M109 S110 T0"<<endl<<"M104 S220 T0"<<endl<<"G162 X Y F2500"<<endl<<"G161 Z F1100"<<endl;
     outfile<<"G92 Z-5"<<endl<<"G1 Z0.0"<<endl<<"G161 Z F100"<<endl<<"M132 X Y Z A B"<<endl<<"G1 X-110.5 Y-74 Z150 F3300.0"<<endl<<"G130 X20 Y20 Z20 A20 B20"<<endl<<"M6 T0"<<endl;
     outfile<<"G130 X127 Y127 Z40 A127 B127"<<endl<<"M108 R3.0 T0"<<endl<<"G0 X-110.5 Y-74"<<endl<<"G0 Z0.6"<<endl<<"M108 R5.0"<<endl<<"M101"<<endl<<"G4 P2000"<<endl;
     */
-    //×óÅçÍ·
+    //å·¦å–·å¤´
 
     outfile<<"M103"<<endl<<"M73 P0"<<endl<<"G21"<<endl<<"G90"<<endl<<"M109 S110 T1"<<endl<<"M104 S220 T1"<<endl<<"G162 X Y F2500"<<endl<<"G161 Z F1100"<<endl;
     outfile<<"G92 Z-5"<<endl<<"G1 Z0.0"<<endl<<"G161 Z F100"<<endl<<"M132 X Y Z A B"<<endl<<"G1 X-110.5 Y-74 Z150 F3300.0"<<endl<<"G130 X20 Y20 Z20 A20 B20"<<endl<<"M6 T1"<<endl;
     outfile<<"G130 X127 Y127 Z40 A127 B127"<<endl<<"M108 R3.0 T1"<<endl<<"G0 X-110.5 Y-74"<<endl<<"G0 Z0.6"<<endl<<"M108 R5.0"<<endl<<"M101"<<endl<<"G4 P2000"<<endl;
 
     float ShangCiE=1;
-    float XiShuE=deltaE;  //EµÄ±ÈÀıÏµÊıÈ¡µÃÕâ¸öÖµÏàµ±ÓÚÆÕÍ¨Ë¿¾¶ÉèÖÃÎª1.82mmÊ±µÄÊıÖµ¡£
+    float XiShuE=deltaE;  //Eçš„æ¯”ä¾‹ç³»æ•°å–å¾—è¿™ä¸ªå€¼ç›¸å½“äºæ™®é€šä¸å¾„è®¾ç½®ä¸º1.82mmæ—¶çš„æ•°å€¼ã€‚
     float X=0,Y=0;
 
     float deltaZ=0.27;
-    if (1)    //ÕâÀïµÄ´úÂë±íÊ¾Á½²ã»¥Ïà³É90¶È¼Ğ½ÇµÄµ×²ã£¬ÎªÁË´òÍêÁã¼şºóÈİÒ×È¡ÏÂÀ´£¡£¡
+    if (1)    //è¿™é‡Œçš„ä»£ç è¡¨ç¤ºä¸¤å±‚äº’ç›¸æˆ90åº¦å¤¹è§’çš„åº•å±‚ï¼Œä¸ºäº†æ‰“å®Œé›¶ä»¶åå®¹æ˜“å–ä¸‹æ¥ï¼ï¼
     {
         deltaZ+=0.2;
-        //µÚÒ»²ãEÏµÊıÊÇ0.189£¬²ãºñÊÇ0.47,ËÙ¶ÈFÖµÎª372
+        //ç¬¬ä¸€å±‚Eç³»æ•°æ˜¯0.189ï¼Œå±‚åšæ˜¯0.47,é€Ÿåº¦Få€¼ä¸º372
         X=firstResult[0][0].x;
         Y=firstResult[0][0].y;
         outfile<<"G1 "<<"X"<<X<<" Y"<<Y<<" Z"<<deltaZ<<" F3300"<<endl;
@@ -210,7 +210,7 @@ void lineScanDialog::on_pushButton_save_clicked()
             Y=firstResult[0][j].y;
         }
         outfile<<"G1 F1200"<<endl<<"G1 E"<<ShangCiE-1<<endl<<"G1 F1230"<<endl<<"M103"<<endl;
-        //µÚ¶ş²ãEÏµÊıÊÇ0.0739£¬²ãºñÊÇ0.98,ËÙ¶ÈFÖµÎª1111
+        //ç¬¬äºŒå±‚Eç³»æ•°æ˜¯0.0739ï¼Œå±‚åšæ˜¯0.98,é€Ÿåº¦Få€¼ä¸º1111
         deltaZ+=0.51;
         X=secondResult[0][0].x;
         Y=secondResult[0][0].y;
@@ -224,7 +224,7 @@ void lineScanDialog::on_pushButton_save_clicked()
             Y=secondResult[0][j].y;
         }
         outfile<<"G1 F1200"<<endl<<"G1 E"<<ShangCiE-1<<endl<<"G1 F1230"<<endl<<"M103"<<endl;
-        //µÚÈı²ãÍ¬µÚ¶ş²ãÄ¿µÄ¾ø¶ÔÊÇÎªÁË¹¤¼şÈİÒ×´Óµ××ù·ÖÀë£¡£¡
+        //ç¬¬ä¸‰å±‚åŒç¬¬äºŒå±‚ç›®çš„ç»å¯¹æ˜¯ä¸ºäº†å·¥ä»¶å®¹æ˜“ä»åº•åº§åˆ†ç¦»ï¼ï¼
         deltaZ+=0.51;
         X=secondResult[0][0].x;
         Y=secondResult[0][0].y;
@@ -239,12 +239,12 @@ void lineScanDialog::on_pushButton_save_clicked()
         }
     }
     outfile<<"G1 F1200"<<endl<<"G1 E"<<ShangCiE-1<<endl<<"G1 F1230"<<endl<<"M103"<<endl;
-    deltaZ+=0.23;  //ÕâÒ»²ã²¢·Ç0.27£¬¿ÉÄÜÊÇÎªÁËÌî²¹µ×²ãµÄÒ»Ğ©¿Õ°×£¡
+    deltaZ+=0.23;  //è¿™ä¸€å±‚å¹¶é0.27ï¼Œå¯èƒ½æ˜¯ä¸ºäº†å¡«è¡¥åº•å±‚çš„ä¸€äº›ç©ºç™½ï¼
 
     for (int i=0;i!=theData.size();i++)
     {
         float tZ=recordZ[i]+deltaZ;
-        for (int j=0;j!=theData[i].size();j++)   //Ìî³äÂÖÀªµÄÑ­»·
+        for (int j=0;j!=theData[i].size();j++)   //å¡«å……è½®å»“çš„å¾ªç¯
         {
             X=theData[i][j][0].x;
             Y=theData[i][j][0].y;
@@ -259,7 +259,7 @@ void lineScanDialog::on_pushButton_save_clicked()
             }
             outfile<<"G1 F1200"<<endl<<"G1 E"<<ShangCiE-1<<endl<<"G1 F1230"<<endl<<"M103"<<endl;
         }
-        for (int j=0;j!=InfilledData[i].size();j++)  //Ìî³äÄÚ²¿É¨ÃèÏßµÄÑ­»·
+        for (int j=0;j!=InfilledData[i].size();j++)  //å¡«å……å†…éƒ¨æ‰«æçº¿çš„å¾ªç¯
         {
             X=InfilledData[i][j][0].x;
             Y=InfilledData[i][j][0].y;
@@ -275,10 +275,10 @@ void lineScanDialog::on_pushButton_save_clicked()
             outfile<<"G1 F1200"<<endl<<"G1 E"<<ShangCiE-1<<endl<<"G1 F1230"<<endl<<"M103"<<endl;
         }
     }
-    //½áÎ²´úÂë
+    //ç»“å°¾ä»£ç 
     outfile<<"M73 P100"<<endl<<"G0 Z150"<<endl<<"M18"<<endl<<"M104 S0 T0"<<endl<<"M109 S0 T0"<<endl<<"G162 X Y F2500"<<endl<<"M18"<<endl<<"M70 P5"<<endl<<"M72 P1"<<endl;
 
-    std::cout<<"²âÊÔÍê±Ï£¡"<<endl;
+    std::cout<<"æµ‹è¯•å®Œæ¯•ï¼"<<endl;
 
 
 
