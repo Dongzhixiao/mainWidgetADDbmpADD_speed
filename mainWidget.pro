@@ -52,7 +52,12 @@ RESOURCES += \
 
 INCLUDEPATH += $$PWD
 
-#LIBS += -L"D:\Qt\Qt5.5.0\5.5\msvc2013\lib" -lglut
-
+LIBS += -L./OpenGL -lGLAUX
+#LIBS += -L./OpenGL -lglu
+LIBS += -L./OpenGL -lGLU32
+LIBS += -L./OpenGL -lglut
+LIBS += -L./OpenGL -lGLUT32
+#LIBS += -L./OpenGL -lopengl
+LIBS += -L./OpenGL -lOPENGL32
 
 #CONFIG += c++11 \c++0x

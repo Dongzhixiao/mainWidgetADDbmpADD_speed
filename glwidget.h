@@ -1,11 +1,22 @@
-#ifndef GLWIDGET_H
+﻿#ifndef GLWIDGET_H
 #define GLWIDGET_H
+
+#ifndef GLUT_DISABLE_ATEXIT_HACK
+#define GLUT_DISABLE_ATEXIT_HACK
+#endif
+#include <QtOpenGL/QGLWidget>
+#include <QtOpenGL>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glaux.h>
+
 
 #include <QtCore>
 #include <QtGui>
 #include <QtOpenGL>
 #include <QWidget>
 #include "generate_line.h"
+
 
 
 namespace Ui {
